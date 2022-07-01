@@ -15,12 +15,16 @@ class CoinsRepository @Inject constructor(
     fun getCoins(): Flow<Resource<List<CoinsDto>>> = flow {
         try {
             emit(Resource.Loading())
-            val exchanges = api.getCoins()
-            emit(Resource.Success(exchanges))
+            val coins = api.getCoins()
+            emit(Resource.Success(coins))
         }catch (e: HttpException){
             emit(Resource.Error(e.message ?: "Error HTTP GENERAL"))
         }catch (e: IOException){
             emit(Resource.Error(e.message ?: "verificar tu conexion a internet"))
         }
+    }
+
+    suspend fun postCoins(coins:CoinsDto): CoinsDto{
+        return api.postCoins(coins)
     }
 }

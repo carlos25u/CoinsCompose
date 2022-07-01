@@ -70,11 +70,6 @@ fun coinsItem(coins: CoinsDto, onClick : (CoinsDto)-> Unit) {
                     .padding(8.dp),
 
                 ) {
-                AsyncImage(
-                    model = "${coins.imagenUrl}",
-                    contentDescription = null,
-
-                    )
 
                 Row(modifier = Modifier
                     .fillMaxWidth().padding(horizontal = 5.dp, vertical = 10.dp),

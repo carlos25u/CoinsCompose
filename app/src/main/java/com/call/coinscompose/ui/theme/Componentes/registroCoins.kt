@@ -25,6 +25,7 @@ fun  registroCoins(backToListado:() -> Unit, viewModel: CoinsViewModel = hiltVie
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
+                    viewModel.Guardar()
                     backToListado()
                 },
                 backgroundColor = MaterialTheme.colors.primary
@@ -42,8 +43,8 @@ fun  registroCoins(backToListado:() -> Unit, viewModel: CoinsViewModel = hiltVie
                 .padding(8.dp)) {
 
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = viewModel.descripcion,
+                onValueChange = {viewModel.descripcion = it},
                 label = { Text(text = "Descripcion")},
                 modifier = Modifier.fillMaxWidth(),
                 leadingIcon = {
@@ -53,8 +54,8 @@ fun  registroCoins(backToListado:() -> Unit, viewModel: CoinsViewModel = hiltVie
             )
 
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
+                value = viewModel.valor,
+                onValueChange = {viewModel.valor = it},
                 label = { Text(text = "Valor")},
                 modifier = Modifier.fillMaxWidth(),
                 leadingIcon = {
