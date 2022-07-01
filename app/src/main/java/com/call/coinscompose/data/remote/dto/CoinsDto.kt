@@ -4,5 +4,5 @@ data class CoinsDto(
     val coinId: Int,
     val descripcion: String,
     val valor: String,
-    val imagenUrl: String
+    val imagenUrl: String?
 )
