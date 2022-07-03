@@ -83,7 +83,9 @@ fun coinsItem(coins: CoinsDto, onClick : (CoinsDto)-> Unit) {
 
 
                     Text(
-                        text = "$ ${coins.valor}",)
+                        text = "$${coins.valor}",
+                        style = MaterialTheme.typography.body1,
+                    )
                 }
             }
         }
